@@ -19,9 +19,12 @@ import streamlit as st
 from PyPDF2 import PdfReader
 from docx import Document
 
-api_key = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY")
 if not api_key:
-    st.error("OPENAI_API_KEY not set. Please set the environment variable.")
+    st.error(
+        "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable "
+        "or add it to Streamlit secrets (secrets.toml)."
+    )
     st.stop()
 
 client = OpenAI(api_key=api_key)

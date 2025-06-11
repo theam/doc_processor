@@ -10,6 +10,8 @@ This is a Streamlit application for analyzing documents. You can enter a prompt 
    cp .env.example .env
    ```
 
+   > **Note:** When deploying to Streamlit Cloud, add your OpenAI API key to the Secrets Manager under `OPENAI_API_KEY`.
+
 2. Install dependencies:
 
    ```bash
